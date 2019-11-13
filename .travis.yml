@@ -3,18 +3,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t stephengrider/docker-react -f Dockerfile.dev .
+  - docker build -t pritamkhose/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run stephengrider/docker-react npm run test -- --coverage
+  - docker run pritamkhose/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
   region: "us-west-2"
-  app: "docker"
-  env: "Docker-env"
-  bucket_name: "elasticbeanstalk-us-west-2-306476627547"
-  bucket_path: "docker"
+  app: "DockerReact"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-985964210512"
+  bucket_path: "DockerReact"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
